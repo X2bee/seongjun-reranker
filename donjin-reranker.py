@@ -37,7 +37,7 @@ def rerank(query, candidates, model, tokenizer, device, max_len=512):
 def main():
 	# Model name and device setup
 	model_name_or_path = "Dongjin-kr/ko-reranker"
-	device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 	print(f"Using device: {device}")
 
 	# Load the model and tokenizer
